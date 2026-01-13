@@ -1,0 +1,56 @@
+.desti-item {
+    margin-bottom: 30px;
+}
+
+/* Ensure padding between sections if missing */
+.destination-section {
+    padding-top: 80px;
+}
+
+/* Style for new image tags acting as background */
+.banner-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.home-banner-items {
+    position: relative;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+.home-slider {
+    overflow: hidden;
+}
+
+/* Ensure overlay is above image but below content */
+.home-banner-items .overlay {
+    z-index: 1 !important;
+}
+
+/* Ensure content is strictly above overlay */
+.banner-content-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure header is absolute and on top with transparency */
+.header-primary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background: transparent !important;
+}
+
+/* Fix for fixed header on scroll */
+.fixed-header.header-primary {
+    position: fixed;
+    background: #fff !important;
+}

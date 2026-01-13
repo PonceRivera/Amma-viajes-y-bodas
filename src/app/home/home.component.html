@@ -1,0 +1,1077 @@
+<div id="siteLoader" class="site-loader">
+    <div class="preloader-content">
+        <img src="/assets/images/loader1.gif" alt="">
+    </div>
+</div>
+<div id="page" class="full-page">
+    <header id="masthead" class="site-header header-primary">
+        <!-- header html start -->
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <div class="header-contact-info">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fas fa-phone-alt"></i> +52 1 81 2377 5904</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@ammaviajesybodas.com"><i class="fas fa-envelope"></i>
+                                        info@ammaviajesybodas.com</a>
+                                </li>
+                                <!--    <li>
+                                 <i class="fas fa-map-marker-alt"></i> Mitras Centro, 64460 Monterrey, N.L.
+                              </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
+                        <div class="header-social social-links">
+                            <ul>
+                                <li><a href="https://www.facebook.com/share/16pT5rgsz1/" target="_blank"><i
+                                            class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                <!--  <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li> -->
+                                <li><a href="https://www.instagram.com/amma.viajesybodas?igsh=Y3gybHdmZmRjcHc3"
+                                        target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+
+                                <li><a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20más%20información"
+                                        target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="header-search-icon">
+                            <button class="search-icon">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-header">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="site-identity">
+                    <h1 class="site-title">
+                        <a href="index.html">
+                            <img class="white-logo" src="/assets/images/travele-logo.png" alt="logo">
+                            <img class="black-logo" src="/assets/images/travele-logo1.png" alt="logo">
+                        </a>
+                    </h1>
+                </div>
+                <div class="main-navigation d-none d-lg-block">
+                    <nav id="navigation" class="navigation">
+                        <ul>
+                            <li>
+                                <a href="#page">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="/blog">BLOG: La Regia Viajera</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-btn">
+                    <ng-container *ngIf="!user">
+                        <a routerLink="/login" class="button-primary"
+                            style="background-color: transparent; color: #101F46; border: 1px solid #101F46; margin-right: 10px;">Log
+                            In</a>
+                        <a routerLink="/signup" class="button-primary" style="margin-right: 10px;">Sign Up</a>
+                    </ng-container>
+                    <ng-container *ngIf="user">
+                        <span style="margin-right: 10px; font-weight: bold; color: #101F46;">Hola, {{user.name}}</span>
+                        <a *ngIf="user.role === 'admin'" routerLink="/admin" class="button-primary" style="margin-right: 10px; background-color: #101F46;">Panel Admin</a>
+                        <a (click)="logout()" class="button-primary" style="background-color: transparent; color: #dc3545; border: 1px solid #dc3545; cursor: pointer; margin-right: 10px;">Salir</a>
+                    </ng-container>
+                    <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                        target="_blank" class="button-primary">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-container"></div>
+    </header>
+    <main id="content" class="site-main">
+        <!-- Home slider html start -->
+        <section class="home-banner-section">
+            <div class="home-slider" ngSkipHydration>
+                <div class="home-banner-items">
+                    <img src="/assets/images/slider-banner-1.jpg?v=99" alt="Viaja por el mundo" class="banner-bg-img">
+                    <div class="banner-content-wrap">
+                        <div class="container">
+                            <div class="banner-content text-center">
+                                <h2 class="banner-title">Viaja por el mundo</h2>
+                                <p>En Travel Viajes contamos con los mejores paquetes turísticos desde México con vuelos
+                                    incluidos. Ofrecemos viajes todo incluido a destinos como Europa, Asia, América, y
+                                    más. Consulta los requisitos antes de planificar tu viaje.</p>
+                                <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                    target="_blank" class="button-primary">Cotiza aquí</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="home-banner-items">
+                    <img src="/assets/images/slider-banner-2.jpg?v=99" alt="Viajes y bodas" class="banner-bg-img">
+                    <div class="banner-content-wrap">
+                        <div class="container">
+                            <div class="banner-content text-center">
+                                <h2 class="banner-title">Viajes y bodas</h2>
+                                <p>Viajes y Bodas es la empresa en la que confiar para que todos sus sueños nupciales se
+                                    conviertan en realidad. Gracias a su experiencia organizando bodas de todo tipo, son
+                                    los aliados perfectos que garantizarán que su evento se lleve a cabo con elegancia y
+                                    distinción. Su labor de calidad los dejará sorprendidos.</p>
+                                <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                    target="_blank" class="button-primary">Cotiza aquí</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </section>
+        <!-- slider html start -->
+        <!-- Home search field html start -->
+
+        <!-- search search field html end -->
+        <section class="destination-section">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="row align-items-end">
+                        <div class="col-lg-7">
+                            <h5 class="dash-style">Destinos populares</h5>
+                            <h2>Destinos más solicitados</h2>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="section-disc">
+                                Desde nuestros comienzos en 1999 en México, en Mega Travel nos hemos destacado como
+                                líderes confiables en el sector. A lo largo de nuestra trayectoria, nos hemos
+                                consolidado como la principal operadora turística en varios países de América Latina:
+                                Argentina, Colombia, Panamá, Perú, Guatemala y El Salvador.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-inner destination-three-column">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="desti-item overlay-desti-item">
+                                        <figure class="desti-image">
+                                            <img src="/assets/images/img1.jpg" alt="">
+                                        </figure>
+                                        <div class="meta-cat bg-meta-cat">
+                                            <a href="#">Mazatlán</a>
+                                        </div>
+                                        <div class="desti-content">
+                                            <h3>
+                                                <a href="#">Sinaloa</a>
+                                            </h3>
+                                            <div class="rating-start" title="Rated 5 out of 4">
+                                                <span style="width: 53%"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="desti-item overlay-desti-item">
+                                        <figure class="desti-image">
+                                            <img src="/assets/images/img2.jpg" alt="">
+                                        </figure>
+                                        <div class="meta-cat bg-meta-cat">
+                                            <a href="#">Cancún</a>
+                                        </div>
+                                        <div class="desti-content">
+                                            <h3>
+                                                <a href="#">Chichén Itzá</a>
+                                            </h3>
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 100%"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-12">
+                                    <div class="desti-item overlay-desti-item">
+                                        <figure class="desti-image">
+                                            <img src="/assets/images/img3.jpg" alt="">
+                                        </figure>
+                                        <div class="meta-cat bg-meta-cat">
+                                            <a href="#">Monterrey</a>
+                                        </div>
+                                        <div class="desti-content">
+                                            <h3>
+                                                <a href="#">Monterrey</a>
+                                            </h3>
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 100%"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-12">
+                                    <div class="desti-item overlay-desti-item">
+                                        <figure class="desti-image">
+                                            <img src="/assets/images/img4.jpg" alt="">
+                                        </figure>
+                                        <div class="meta-cat bg-meta-cat">
+                                            <a href="#">Ciudad de México</a>
+                                        </div>
+                                        <div class="desti-content">
+                                            <h3>
+                                                <a href="#">Xochimilco</a>
+                                            </h3>
+                                            <div class="rating-start" title="Rated 5 out of 4">
+                                                <span style="width: 60%"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-wrap text-center">
+                        <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                            target="_blank" class="button-primary">Cotiza tu destino</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Home packages section html start -->
+        <section class="package-section">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <h5 class="dash-style">Paquetes de boda</h5>
+                            <h2>Boda en Mazatlán</h2>
+                            <p>Conoce nuestros exclusivos paquetes de bodas y banquetes y vive el día que siempre has
+                                soñado en uno de nuestros espectaculares destinos de Playa: Mazatlán, Nuestros
+                                profesionales coordinadores de boda se encargarán de cada mínimo detalle para que tu
+                                boda en El Cid Resorts sea increíble e inolvidable. Una colección exclusiva de destinos
+                                para bodas y lunas de miel entre los más románticos de México..</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="package-inner">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="#">
+                                        <img src="/assets/images/img5.jpg" alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>$1,900 </span> / por persona
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                7D/6N
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-user-friends"></i>
+                                                30 personas
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Mazatlán
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a href="#">Gaviana Resort Mazatlan</a>
+                                        </h3>
+                                        <div class="review-area">
+                                            <!--      <span class="review-text">(25 reviews)</span> -->
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 50%"></span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut
+                                            elit tellus, luctus nec ullam elit tellpus.</p>
+                                        <!--    <div class="btn-wrap">
+                                       <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                       <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                    </div>  -->
+                                        <div class="btn-wrap text-center">
+                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                                target="_blank" class="button-primary">Consulta disponibilidad</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="#">
+                                        <img src="/assets/images/img6.jpg" alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>$1,980 </span> / por persona
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                5D/4N
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-user-friends"></i>
+                                                50 pesonas
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Mazatlán
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a href="#">Emporio Mazatlan</a>
+                                        </h3>
+                                        <div class="review-area">
+                                            <!--     <span class="review-text">(17 reviews)</span> -->
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 70%"></span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut
+                                            elit tellus, luctus nec ullam elit tellpus.</p>
+                                        <!--        <div class="btn-wrap">
+                                       <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                       <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                    </div>  -->
+                                        <div class="btn-wrap text-center">
+                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                                target="_blank" class="button-primary">Cotiza tu paquete</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="#">
+                                        <img src="/assets/images/img7.jpg" alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>$2,000 </span> / por persona
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                6D/5N
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-user-friends"></i>
+                                                100 personas
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Mazatlán
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a href="#">Fiesta Inn Mazatlán</a>
+                                        </h3>
+                                        <div class="review-area">
+                                            <!--    <span class="review-text">(22 reviews)</span> -->
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 100%"></span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut
+                                            elit tellus, luctus nec ullam elit tellpus.</p>
+                                        <!--     <div class="btn-wrap">
+                                       <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                       <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                    </div>  -->
+
+                                        <div class="btn-wrap text-center">
+                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                                target="_blank" class="button-primary">Cotiza tu paquete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="package-inner">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="#">
+                                        <img src="/assets/images/img5.jpg" alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>$2,500 </span> / por persona
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                7D/6N
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-user-friends"></i>
+                                                30 personas
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Mazatlán
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a href="#">Hoteles el Cid </a>
+                                        </h3>
+                                        <div class="review-area">
+                                            <!--      <span class="review-text">(25 reviews)</span> -->
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 50%"></span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut
+                                            elit tellus, luctus nec ullam elit tellpus.</p>
+                                        <!--    <div class="btn-wrap">
+                                       <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                       <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                    </div>  -->
+                                        <div class="btn-wrap text-center">
+                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                                target="_blank" class="button-primary">Cotiza tu paquete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="#">
+                                        <img src="/assets/images/img6.jpg" alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>$2,800 </span> / por persona
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                5D/4N
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-user-friends"></i>
+                                                50 pesonas
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Mazatlán
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a href="#">Pueblo Bonito</a>
+                                        </h3>
+                                        <div class="review-area">
+                                            <!--     <span class="review-text">(17 reviews)</span> -->
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 70%"></span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut
+                                            elit tellus, luctus nec ullam elit tellpus.</p>
+                                        <!--        <div class="btn-wrap">
+                                       <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                       <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                    </div>  -->
+                                        <div class="btn-wrap text-center">
+                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                                target="_blank" class="button-primary">Cotiza tu paquete</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="#">
+                                        <img src="/assets/images/img7.jpg" alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>$3,600 </span> / por persona
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                6D/5N
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-user-friends"></i>
+                                                100 personas
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Mazatlán
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a href="#">Riu Emerald</a>
+                                        </h3>
+                                        <div class="review-area">
+                                            <!--    <span class="review-text">(22 reviews)</span> -->
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 100%"></span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut
+                                            elit tellus, luctus nec ullam elit tellpus.</p>
+                                        <!--     <div class="btn-wrap">
+                                       <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                       <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                    </div>  -->
+
+                                        <div class="btn-wrap text-center">
+                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                                target="_blank" class="button-primary">Cotiza tu paquete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-wrap text-center">
+                        <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                            target="_blank" class="button-primary">Conoce más promociones</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- packages html end -->
+        <!-- Home callback section html start -->
+        <!-- callback html end -->
+        <!-- Home activity section html start -->
+        <section class="activity-section">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <h5 class="dash-style">Selecciona tu actividad</h5>
+                            <h2>Diferentes actividades</h2>
+                            <p>Planea desde hoy qué hacer en CDMX durante el fin. Encuentra actividades en distintas
+                                zonas de la Ciudad; hay opciones para todas las edades y presupuestos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-inner row">
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <a href="#">
+                                    <img src="/assets/images/icon6.png" alt="">
+                                </a>
+                            </div>
+                            <div class="activity-content">
+                                <h4>
+                                    <a href="#">Aventura</a>
+                                </h4>
+                                <p>15 destinos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <a href="#">
+                                    <img src="/assets/images/icon10.png" alt="">
+                                </a>
+                            </div>
+                            <div class="activity-content">
+                                <h4>
+                                    <a href="#">Senderismo</a>
+                                </h4>
+                                <p>12 destinos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <a href="#">
+                                    <img src="/assets/images/icon9.png" alt="">
+                                </a>
+                            </div>
+                            <div class="activity-content">
+                                <h4>
+                                    <a href="#">Fogata</a>
+                                </h4>
+                                <p>7 destinos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <a href="#">
+                                    <img src="/assets/images/icon8.png" alt="">
+                                </a>
+                            </div>
+                            <div class="activity-content">
+                                <h4>
+                                    <a href="#">Cerca de la ciudad</a>
+                                </h4>
+                                <p>15 destinos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <a href="#">
+                                    <img src="/assets/images/icon7.png" alt="">
+                                </a>
+                            </div>
+                            <div class="activity-content">
+                                <h4>
+                                    <a href="#">Acampar</a>
+                                </h4>
+                                <p>13 destinos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <a href="#">
+                                    <img src="/assets/images/icon11.png" alt="">
+                                </a>
+                            </div>
+                            <div class="activity-content">
+                                <h4>
+                                    <a href="#">Exploración</a>
+                                </h4>
+                                <p>25 destinos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-wrap text-center">
+                    <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                        target="_blank" class="button-primary">WhatsApp</a>
+                </div>
+            </div>
+        </section>
+        <!-- activity html end -->
+        <!-- Home special section html start -->
+        <section class="special-section">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <h5 class="dash-style">Oferta</h5>
+                            <h2>Oferta de temporada</h2>
+                            <p>Promociones del mes de Octubre para viajar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="special-inner">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="special-item">
+                                <figure class="special-img">
+                                    <img src="/assets/images/img9.jpg" alt="">
+                                </figure>
+                                <div class="badge-dis">
+                                    <span>
+                                        <strong>20%</strong>
+                                        off
+                                    </span>
+                                </div>
+                                <div class="special-content">
+                                    <div class="meta-cat">
+                                        <a href="#">CANADA | 7D 4N</a>
+                                    </div>
+                                    <h3>
+                                        <a href="#">Chelsea Hotel Toronto
+                                        </a>
+                                    </h3>
+                                    <div class="package-price">
+                                        Price:
+                                        <del>$1500</del>
+                                        <ins>$1200</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="special-item">
+                                <figure class="special-img">
+                                    <img src="/assets/images/img10.jpg" alt="">
+                                </figure>
+                                <div class="badge-dis">
+                                    <span>
+                                        <strong>35%</strong>
+                                        off
+                                    </span>
+                                </div>
+                                <div class="special-content">
+                                    <div class="meta-cat">
+                                        <a href="#">COLOMBIA | 7D 4N</a>
+                                    </div>
+                                    <h3>
+                                        <a href="#">Hilton Bogota Corferias</a>
+                                    </h3>
+                                    <div class="package-price">
+                                        Price:
+                                        <del>$1300</del>
+                                        <ins>$1105</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="special-item">
+                                <figure class="special-img">
+                                    <img src="/assets/images/img11.jpg" alt="">
+                                </figure>
+                                <div class="badge-dis">
+                                    <span>
+                                        <strong>50%</strong>
+                                        off
+                                    </span>
+                                </div>
+                                <div class="special-content">
+                                    <div class="meta-cat">
+                                        <a href="#">Ciudad de México | 7D 4N</a>
+                                    </div>
+                                    <h3>
+                                        <a href="#">AmazINN Places La Condesa Roma</a>
+                                    </h3>
+                                    <div class="package-price">
+                                        Price:
+                                        <del>$1800</del>
+                                        <ins>$1476</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- special html end -->
+        <!-- Home special section html start -->
+        <section class="best-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="section-heading">
+                            <h5 class="dash-style">GALERÍA</h5>
+                            <h2>NUESTRA CAGERLÍA</h2>
+                            <p>Clientes satosfechos, Clientes satosfechos, Clientes satosfechos, Clientes satosfechos,
+                                Clientes satosfechos, Clientes satosfechos,Clientes satosfechos, Clientes satosfechos,
+                            </p>
+                        </div>
+                        <figure class="gallery-img">
+                            <img src="assets/images/img12.jpg" alt="">
+                        </figure>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <figure class="gallery-img">
+                                    <img src="assets/images/img13.jpg" alt="">
+                                </figure>
+                            </div>
+                            <div class="col-sm-6">
+                                <figure class="gallery-img">
+                                    <img src="assets/images/img14.jpg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <figure class="gallery-img">
+                                    <img src="assets/images/img15.jpg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- best html end -->
+        <!-- Home client section html start -->
+        <div class="client-section">
+            <div class="container">
+                <div class="client-wrap client-slider secondary-bg">
+                    <div class="client-item">
+                        <figure>
+                            <img src="assets/images/logo1.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="assets/images/logo2.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="assets/images/logo3.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="assets/images/logo4.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="assets/images/logo5.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="assets/images/logo2.png" alt="">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <!-- client html end -->
+        <!-- Home subscribe section html start -->
+        <!-- subscribe html end -->
+        <!-- Home blog section html start -->
+        <!-- blog html end -->
+        <!-- Home testimonial section html start -->
+        <div class="testimonial-section" style="background-image: url(assets/images/img23.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="testimonial-inner testimonial-slider">
+                            <div class="testimonial-item text-center">
+                                <figure class="testimonial-img">
+                                    <img src="assets/images/img20.jpg" alt="">
+                                </figure>
+                                <div class="testimonial-content">
+                                    <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis
+                                        fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere?
+                                        Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis
+                                        condi mentum acpri! "</p>
+                                    <cite>
+                                        Johny English
+                                        <span class="company">Travel Agent</span>
+                                    </cite>
+                                </div>
+                            </div>
+                            <div class="testimonial-item text-center">
+                                <figure class="testimonial-img">
+                                    <img src="assets/images/img21.jpg" alt="">
+                                </figure>
+                                <div class="testimonial-content">
+                                    <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis
+                                        fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere?
+                                        Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis
+                                        condi mentum acpri! "</p>
+                                    <cite>
+                                        William Housten
+                                        <span class="company">Travel Agent</span>
+                                    </cite>
+                                </div>
+                            </div>
+                            <div class="testimonial-item text-center">
+                                <figure class="testimonial-img">
+                                    <img src="assets/images/img22.jpg" alt="">
+                                </figure>
+                                <div class="testimonial-content">
+                                    <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis
+                                        fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere?
+                                        Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis
+                                        condi mentum acpri! "</p>
+                                    <cite>
+                                        Alison Wright
+                                        <span class="company">Travel Guide</span>
+                                    </cite>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- testimonial html end -->
+        <!-- Home contact details section html start -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="contact-img" style="background-image: url(assets/images/img24.jpg);">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="contact-details-wrap">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="contact-details">
+                                        <div class="contact-icon">
+                                            <img src="assets/images/icon12.png" alt="">
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <a href="mailto:info@ammaviajesybodas.com">info@ammaviajesybodas.com</a>
+                                            </li>
+                                            <!--   <li>
+                                          <a href="mailto:info@ammaviajesybodas.com">info@ammaviajesybodas.com</a>
+                                       </li> -->
+                                            <!--  <li>
+                                          <a href="#">otro2@company.com</a>
+                                       </li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="contact-details">
+                                        <div class="contact-icon">
+                                            <img src="assets/images/icon13.png" alt="">
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <a href="#">+52 1 81 2377 5904</a>
+                                            </li>
+                                            <!-- <li>
+                                          <a href="#">+52 1 81 8202 4508</a>
+                                       </li> -->
+                                            <!--  <li>
+                                          <a href="#">+52 1 81 8202 4508</a>
+                                       </li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="contact-details">
+                                        <div class="contact-icon">
+                                            <img src="assets/images/icon14.png" alt="">
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                Mitras Centro,
+                                            </li>
+                                            <li>
+                                                64460 Monterrey,
+                                            </li>
+                                            <li>
+                                                N.L.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-btn-wrap">
+                            <h3> ¡Escribenos te atenderemos a la brevedad!</h3>
+                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
+                                target="_blank" class="button-primary">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  contact details html end -->
+    </main>
+    <footer id="colophon" class="site-footer footer-primary">
+        <div class="buttom-footer">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-5">
+                        <div class="footer-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">Consulta términos y condiciones</a>
+                                </li>
+                                <li>
+                                    <a href="#">Precios sujetos a cambios sin previo aviso</a>
+                                </li>
+                                <!--   <li>
+                                 <a href="#">FAQ</a>
+                              </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="footer-logo">
+                            <a href="http://ammaviajesybodas.com/"><img src="assets/images/travele-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="copy-right text-right">Copyright © 2025 AMMA Viajes & Bodas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a id="backTotop" href="#" class="to-top-icon">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    <!-- custom search field html -->
+    <div class="header-search-form">
+        <div class="container">
+            <div class="header-search-container">
+                <form class="search-form" role="search" method="get">
+                    <input type="text" name="s" placeholder="Enter your text...">
+                </form>
+                <a href="#" class="search-close">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- header html end -->
+</div>

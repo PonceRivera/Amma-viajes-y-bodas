@@ -1,0 +1,43 @@
+.blog-section {
+    min-height: 100vh;
+}
+
+.fb-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.fb-page {
+    width: 100% !important;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.fb-page iframe {
+    margin: 0 auto;
+    display: block;
+}
+
+/* Ensure header is relative with white background */
+.header-primary {
+    position: relative;
+    background: #fff !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .fb-page {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .fb-page-container {
+        padding: 15px !important;
+    }
+
+    .blog-section {
+        padding: 40px 0 !important;
+    }
+}

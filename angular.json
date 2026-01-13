@@ -29,6 +29,14 @@
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
+            "externalDependencies": [
+              "mongoose",
+              "pdfkit",
+              "passport",
+              "passport-google-oauth20",
+              "jsonwebtoken",
+              "express"
+            ],
             "ssr": {
               "entry": "src/server.ts"
             }

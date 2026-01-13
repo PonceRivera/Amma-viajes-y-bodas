@@ -1,0 +1,99 @@
+<div class="admin-container" *ngIf="me">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Amma Admin</h2>
+    <nav>
+      <button [class.active]="activeTab === 'chat'" (click)="switchTab('chat')">
+        💬 Chat
+      </button>
+      <button [class.active]="activeTab === 'receipts'" (click)="switchTab('receipts')">
+        🧾 Recibos
+      </button>
+    </nav>
+    <button class="logout-btn" (click)="logout()">🚪 Cerrar Sesión</button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Header -->
+    <header class="header">
+      <h1>Hola, {{ me.name || me.email }}</h1>
+    </header>
+
+    <!-- Chat View -->
+    <section *ngIf="activeTab === 'chat'" class="chat-view">
+      <h3>Atención al Cliente</h3>
+      <div class="chat-container">
+        <div class="messages">
+          <div *ngFor="let m of messages" class="message"
+            [ngClass]="{'my-message': m.from === me._id, 'other-message': m.from !== me._id}">
+            <div class="msg-content">{{ m.text }}</div>
+          </div>
+        </div>
+        <div class="compose">
+          <input [(ngModel)]="newMessage" (keyup.enter)="send()" placeholder="Escribe un mensaje..." />
+          <button class="btn-primary" (click)="send()">Enviar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Receipts View -->
+    <section *ngIf="activeTab === 'receipts'" class="receipts-view">
+      <h3>Gestión de Recibos</h3>
+
+      <!-- Create Receipt Form -->
+      <div class="create-section">
+        <h4>Crear Nuevo Recibo</h4>
+        <div class="form-group">
+          <label>Nombre del Cliente</label>
+          <input [(ngModel)]="newReceipt.clientName" placeholder="Ej. Juan Pérez" />
+        </div>
+        <div class="form-group">
+          <label>Email del Cliente</label>
+          <input [(ngModel)]="newReceipt.clientEmail" placeholder="cliente@email.com" />
+        </div>
+
+        <label>Conceptos</label>
+        <div class="items-list">
+          <div *ngFor="let item of newReceipt.items; let i = index" class="item-row">
+            <input [(ngModel)]="item.description" placeholder="Descripción" style="flex: 2" />
+            <input [(ngModel)]="item.amount" type="number" placeholder="Monto" style="flex: 1" />
+            <button class="btn-remove" (click)="removeItem(i)">🗑️</button>
+          </div>
+          <button class="action-btn" (click)="addItem()">+ Agregar Concepto</button>
+        </div>
+
+        <button class="btn-primary" (click)="createReceipt()">Generar Recibo</button>
+      </div>
+
+      <!-- Receipts Table -->
+      <div class="receipts-container">
+        <h4>Historial de Recibos</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Folio</th>
+              <th>Cliente</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of receipts">
+              <td>{{ r._id.substring(r._id.length - 6) }}</td>
+              <td>{{ r.clientName }}</td>
+              <td>{{ r.createdAt | date:'short' }}</td>
+              <td>{{ r.total | currency:r.currency }}</td>
+              <td>
+                <button class="action-btn" (click)="downloadPdf(r._id)">⬇️ PDF</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
