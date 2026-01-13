@@ -89,6 +89,37 @@ async function connectToMongo() {
 // Auth routes
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
+// [DEBUG] Check User Existence in Vercel
+app.get('/api/debug-check/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    let user: any = null;
+    let dbName = 'Unknown';
+
+    if (isMongoConnected) {
+      const { default: mongoose } = await import('mongoose');
+      const { default: UserModel } = await import('./server/models/User');
+      user = await UserModel.findOne({ email }).select('+password');
+      dbName = mongoose.connection.name;
+    } else {
+      user = await db.findOne('users', { email });
+      dbName = 'Local JSON (Safe Mode)';
+    }
+
+    res.json({
+      status: user ? 'found' : 'not_found',
+      emailChecked: email,
+      dbName: dbName,
+      isMongoConnected: isMongoConnected,
+      hasPassword: !!user?.password,
+      passwordHashPreview: user?.password ? user.password.substring(0, 10) + '...' : 'none',
+      envMongoUri: process.env['MONGODB_URI'] ? 'Present (Hidden)' : 'Missing'
+    });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // [DEBUG] Mock Login for verification purposes
 app.get('/auth/mock', async (req, res) => {
   if (process.env['NODE_ENV'] === 'production') {
