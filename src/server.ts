@@ -201,14 +201,12 @@ app.post('/auth/login', async (req, res) => {
   try {
     let user: any = null;
 
-    // Check MongoDB first
+    // Check MongoDB or Local, but not both sequentially to avoid EROFS on Vercel
     if (isMongoConnected) {
       const { default: UserModel } = await import('./server/models/User');
       user = await UserModel.findOne({ email });
-    }
-
-    // Fallback to local DB
-    if (!user) {
+    } else {
+      // Only check local if Mongo is NOT connected
       user = await db.findOne('users', { email });
     }
 
@@ -216,6 +214,7 @@ app.post('/auth/login', async (req, res) => {
       res.status(401).json({ error: 'Invalid credentials' });
       return;
     }
+
 
     const { verifyPassword } = await import('./server/auth');
     const isValid = await verifyPassword(password, user.password);
@@ -249,9 +248,7 @@ app.post('/auth/register', async (req, res) => {
     if (isMongoConnected) {
       const { default: UserModel } = await import('./server/models/User');
       existingUser = await UserModel.findOne({ email });
-    }
-
-    if (!existingUser) {
+    } else {
       existingUser = await db.findOne('users', { email });
     }
 
