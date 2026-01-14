@@ -1975,12 +1975,20 @@ input[type=submit]:focus {
     -ms-justify-content: center;
     justify-content: center;
     -ms-flex-pack: center;
-    gap: 10px;
+    gap: 8px;
+    margin-top: 10px;
+    /* Slight top spacing */
   }
 
   .header-btn a {
-    padding: 6px 14px;
-    font-size: 13px;
+    padding: 5px 12px;
+    font-size: 12px;
+    border-radius: 50px;
+    /* Pill shape */
+    margin-right: 0 !important;
+    /* Let gap handle spacing */
+    line-height: normal;
+    /* Ensure vertical centering */
   }
 }
 
