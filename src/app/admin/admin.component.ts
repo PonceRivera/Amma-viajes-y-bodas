@@ -15,8 +15,9 @@ export class AdminComponent implements OnInit {
   me: any = null;
   messages: any[] = [];
   receipts: any[] = [];
+  reservations: any[] = [];
   newMessage = '';
-  activeTab = 'chat'; // 'chat' | 'receipts'
+  activeTab = 'chat'; // 'chat' | 'receipts' | 'reservations'
 
   newReceipt = {
     clientName: '',
@@ -36,6 +37,7 @@ export class AdminComponent implements OnInit {
     this.me = await this.admin.me();
     this.messages = (await this.admin.getMessages()) || [];
     this.receipts = await this.admin.getReceipts();
+    this.reservations = await this.admin.getReservations();
 
     this.chat.connect();
     this.chat.onMessage().subscribe((m) => this.messages.push(m));

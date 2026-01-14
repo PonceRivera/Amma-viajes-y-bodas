@@ -1,0 +1,61 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" (click)="onClose()">&times;</button>
+
+        <h2>Reservar Paquete</h2>
+        <div class="package-summary" *ngIf="packageInfo">
+            <h3>{{ packageInfo.name }}</h3>
+            <p class="price">{{ packageInfo.price }}</p>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" *ngIf="!successMessage">
+            <div class="form-group">
+                <label>Nombre Completo</label>
+                <input type="text" [(ngModel)]="customerName" name="customerName" required placeholder="Tu nombre">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" [(ngModel)]="customerEmail" name="customerEmail" required
+                    placeholder="tu@email.com">
+            </div>
+
+            <div class="divider">
+                <span>Datos de Pago (Simulación Experimental)</span>
+            </div>
+
+            <div class="form-group">
+                <label>Número de Tarjeta</label>
+                <input type="text" [(ngModel)]="cardNumber" name="cardNumber" required placeholder="0000 0000 0000 0000"
+                    maxlength="19">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Expiración (MM/YY)</label>
+                    <input type="text" [(ngModel)]="cardExpiry" name="cardExpiry" required placeholder="MM/YY"
+                        maxlength="5">
+                </div>
+                <div class="form-group">
+                    <label>CVV</label>
+                    <input type="text" [(ngModel)]="cardCvv" name="cardCvv" required placeholder="123" maxlength="4">
+                </div>
+            </div>
+
+            <div class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+            <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+                {{ isSubmitting ? 'Procesando...' : 'Confirmar Reserva' }}
+            </button>
+        </form>
+
+        <div class="success-msg" *ngIf="successMessage">
+            <i class="fas fa-check-circle"></i>
+            <p>{{ successMessage }}</p>
+        </div>
+
+        <p class="disclaimer">
+            <small>⚠️ Este formulario es una demostración. No se realizará ningún cargo real.</small>
+        </p>
+    </div>
+</div>

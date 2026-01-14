@@ -78,8 +78,10 @@
                     </ng-container>
                     <ng-container *ngIf="user">
                         <span style="margin-right: 10px; font-weight: bold; color: #101F46;">Hola, {{user.name}}</span>
-                        <a *ngIf="user.role === 'admin'" routerLink="/admin" class="button-primary" style="margin-right: 10px; background-color: #101F46;">Panel Admin</a>
-                        <a (click)="logout()" class="button-primary" style="background-color: transparent; color: #dc3545; border: 1px solid #dc3545; cursor: pointer; margin-right: 10px;">Salir</a>
+                        <a *ngIf="user.role === 'admin'" routerLink="/admin" class="button-primary"
+                            style="margin-right: 10px; background-color: #101F46;">Panel Admin</a>
+                        <a (click)="logout()" class="button-primary"
+                            style="background-color: transparent; color: #dc3545; border: 1px solid #dc3545; cursor: pointer; margin-right: 10px;">Salir</a>
                     </ng-container>
                     <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
                         target="_blank" class="button-primary">WhatsApp</a>
@@ -303,8 +305,11 @@
                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
                                     </div>  -->
                                         <div class="btn-wrap text-center">
-                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
-                                                target="_blank" class="button-primary">Consulta disponibilidad</a>
+                                            <div class="btn-wrap text-center">
+                                                <button
+                                                    (click)="openReservationModal('Gaviana Resort Mazatlan', '$1,900')"
+                                                    class="button-primary">Reservar ya</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -356,8 +361,10 @@
                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
                                     </div>  -->
                                         <div class="btn-wrap text-center">
-                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
-                                                target="_blank" class="button-primary">Cotiza tu paquete</a>
+                                            <div class="btn-wrap text-center">
+                                                <button (click)="openReservationModal('Emporio Mazatlan', '$1,980')"
+                                                    class="button-primary">Reservar ya</button>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -411,8 +418,10 @@
                                     </div>  -->
 
                                         <div class="btn-wrap text-center">
-                                            <a href="https://wa.me/+5218123775904?text=¡Hola!%20Quiero%20cotizar%20mi%20boda%20en%20Mazatlán"
-                                                target="_blank" class="button-primary">Cotiza tu paquete</a>
+                                            <div class="btn-wrap text-center">
+                                                <button (click)="openReservationModal('Fiesta Inn Mazatlán', '$2,000')"
+                                                    class="button-primary">Reservar ya</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1026,6 +1035,9 @@
         </section>
         <!--  contact details html end -->
     </main>
+
+    <app-reservation-modal *ngIf="isModalOpen" [packageInfo]="selectedPackage" (close)="closeModal()">
+    </app-reservation-modal>
     <footer id="colophon" class="site-footer footer-primary">
         <div class="buttom-footer">
             <div class="container">

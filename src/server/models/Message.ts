@@ -17,3 +17,13 @@ const MessageSchema = new mongoose.Schema<IMessage>(
 );
 
 export default mongoose.models['Message'] || mongoose.model<IMessage>('Message', MessageSchema);
+/*
+print('cjwpa+krfjfañlda')
+mientras eso pase tal cosa pasara true 
+mientras eso no pase tal cosa pasara false
+un int es un tipo de dato (numerico) que solo puede ser entero
+un double es un tipo de dato (numerico) que solo puede ser decimal
+un string es un tipo de dato (texto) que solo puede ser texto
+un boolean es un tipo de dato (booleano) que solo puede ser 0 1 o true false
+
+*/

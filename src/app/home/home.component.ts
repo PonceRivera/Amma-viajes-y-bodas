@@ -2,23 +2,37 @@ import { Component, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { ReservationModalComponent } from '../reservation-modal/reservation-modal.component';
 
 declare var $: any;
 
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule, ReservationModalComponent],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
     host: { 'ngSkipHydration': 'true' }
 })
 export class HomeComponent implements AfterViewInit {
 
+    isModalOpen: boolean = false;
+    selectedPackage: any = null;
+
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
         public authService: AuthService
     ) { }
+
+    openReservationModal(packageName: string, packagePrice: string) {
+        this.selectedPackage = { name: packageName, price: packagePrice };
+        this.isModalOpen = true;
+    }
+
+    closeModal() {
+        this.isModalOpen = false;
+        this.selectedPackage = null;
+    }
 
     get user() {
         if (isPlatformBrowser(this.platformId)) {

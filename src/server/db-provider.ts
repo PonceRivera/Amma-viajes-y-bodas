@@ -7,10 +7,11 @@ interface Schema {
     users: any[];
     messages: any[];
     receipts: any[];
+    reservations: any[];
 }
 
 class DbProvider {
-    private data: Schema = { users: [], messages: [], receipts: [] };
+    private data: Schema = { users: [], messages: [], receipts: [], reservations: [] };
     private initialized = false;
 
     async init() {

@@ -47,4 +47,12 @@ export class AuthService {
         }
         return null;
     }
+
+    createReservation(data: any): Observable<any> {
+        return this.http.post('/api/reservations', data);
+    }
+
+    getAdminReservations(): Observable<any[]> {
+        return this.http.get<any[]>('/api/admin/reservations');
+    }
 }

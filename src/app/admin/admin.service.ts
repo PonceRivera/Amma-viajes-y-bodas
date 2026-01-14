@@ -25,6 +25,13 @@ export class AdminService {
       .then((r) => r || []);
   }
 
+  getReservations() {
+    return this.http
+      .get<any[]>('/api/admin/reservations', { headers: { Authorization: `Bearer ${localStorage.getItem('token') || ''}` } })
+      .toPromise()
+      .then((r) => r || []);
+  }
+
   createReceipt(data: any) {
     return this.http
       .post<any>('/api/admin/receipts', data, { headers: { Authorization: `Bearer ${localStorage.getItem('token') || ''}` } })
