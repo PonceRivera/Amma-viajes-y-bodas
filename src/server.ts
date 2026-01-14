@@ -139,6 +139,17 @@ app.get('/api/debug-check/:email', async (req, res) => {
   }
 });
 
+// [DEBUG] Public debug endpoint to verify Env Vars
+app.get('/api/debug-env', (req, res) => {
+  res.json({
+    mongo_uri_configured: !!process.env['MONGODB_URI'],
+    mongo_uri_length: process.env['MONGODB_URI']?.length || 0,
+    is_mongo_connected: isMongoConnected,
+    mongo_connection_state: isMongoConnected ? 1 : 0,
+    node_env: process.env['NODE_ENV']
+  });
+});
+
 // [DEBUG] Mock Login for verification purposes
 app.get('/auth/mock', async (req, res) => {
   if (process.env['NODE_ENV'] === 'production') {
