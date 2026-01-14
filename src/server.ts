@@ -69,22 +69,41 @@ app.use(passport.initialize());
 
 // MongoDB connection helper
 let isMongoConnected = false;
+let mongoConnectionPromise: Promise<void> | null = null;
+
 async function connectToMongo() {
+  if (isMongoConnected) return;
+  if (mongoConnectionPromise) return mongoConnectionPromise;
+
   const mongoUri = process.env['MONGODB_URI'];
   if (!mongoUri || mongoUri.includes('127.0.0.1')) {
     console.log('No online MongoDB URI found or using local. Site will run in Safe Mode (JSON).');
     return;
   }
 
-  try {
-    const { default: mongoose } = await import('mongoose');
-    await mongoose.connect(mongoUri);
-    isMongoConnected = true;
-    console.log('Connected to MongoDB');
-  } catch (err: any) {
-    console.error('MongoDB connection error. Site will run in Safe Mode (JSON).', err.message);
-  }
+  mongoConnectionPromise = (async () => {
+    try {
+      const { default: mongoose } = await import('mongoose');
+      if (mongoose.connection.readyState === 0) {
+        await mongoose.connect(mongoUri);
+      }
+      isMongoConnected = true;
+      console.log('Connected to MongoDB');
+    } catch (err: any) {
+      console.error('MongoDB connection error. Site will run in Safe Mode (JSON).', err.message);
+    }
+  })();
+
+  return mongoConnectionPromise;
 }
+
+// Ensure MongoDB is connected before handling any API/auth requests (for serverless)
+app.use(async (req, res, next) => {
+  if (req.path.startsWith('/api') || req.path.startsWith('/auth')) {
+    await connectToMongo();
+  }
+  next();
+});
 
 // Auth routes
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
