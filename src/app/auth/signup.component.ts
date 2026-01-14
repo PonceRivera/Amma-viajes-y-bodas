@@ -87,7 +87,8 @@ export class SignupComponent {
       },
       error: (err) => {
         console.error(err);
-        alert('Error al crear cuenta. Puede que el correo ya exista.');
+        const errorMessage = err.error?.error || 'Error al crear cuenta.';
+        alert(errorMessage);
       }
     });
   }
