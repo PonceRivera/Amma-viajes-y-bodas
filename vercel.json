@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist/ammaviajes",
+    "framework": null,
+    "functions": {
+        "dist/ammaviajes/server/server.mjs": {
+            "runtime": "@vercel/node@latest"
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/dist/ammaviajes/server/server.mjs"
+        },
+        {
+            "source": "/auth/(.*)",
+            "destination": "/dist/ammaviajes/server/server.mjs"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/dist/ammaviajes/server/server.mjs"
+        }
+    ]
+}
