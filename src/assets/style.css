@@ -10074,4 +10074,201 @@ product checkout css
   }
 }
 
+/* Destination Explorer Styles */
+.explorer-cat-btn {
+  margin: 0 10px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.explorer-cat-btn.active-cat {
+  background-color: #ffffff;
+  color: #F56960;
+  border: 2px solid #F56960;
+}
+
+.explorer-sub-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  margin: 0 5px;
+  border-radius: 25px;
+  border: 1px solid #101F46;
+  background-color: transparent;
+  color: #101F46;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.explorer-sub-btn:hover {
+  background-color: rgba(16, 31, 70, 0.05);
+}
+
+.explorer-sub-btn.active-sub {
+  background-color: #101F46;
+  color: #ffffff;
+}
+
+/* Card Improvements */
+.explorer-card figure {
+  margin: 0;
+  overflow: hidden;
+  height: 250px;
+}
+
+.explorer-card figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.explorer-card:hover figure img {
+  transform: scale(1.1);
+}
+
+.explorer-card .desti-content {
+  background: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.explorer-card h3 a {
+  color: #101F46;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sm-btn {
+  padding: 8px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 575px) {
+  .explorer-cat-btn {
+    width: 100%;
+    margin: 5px 0;
+    display: block;
+  }
+
+  .explorer-sub-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+
+/*--------------------------------------------------------------
+>>> Destination Explorer Section - Enhanced Styles
+----------------------------------------------------------------*/
+.explorer-section .section-heading {
+  margin-bottom: 40px;
+}
+
+/* Category Buttons */
+.explorer-categories {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.explorer-cat-btn {
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #F56960;
+  /* Primary brand color */
+  background-color: transparent;
+  color: #F56960;
+  cursor: pointer;
+}
+
+.explorer-cat-btn:hover,
+.explorer-cat-btn.active-cat {
+  background-color: #F56960;
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(245, 105, 96, 0.3);
+}
+
+/* Sub-category Buttons */
+.explorer-subcategories {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.explorer-sub-btn {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.explorer-sub-btn:hover,
+.explorer-sub-btn.active-sub {
+  border-color: #101F46;
+  /* Secondary brand color */
+  background-color: #101F46;
+  color: #ffffff;
+}
+
+/* Destination Cards - Uniform Size */
+.explorer-card {
+  height: 100%;
+  /* Ensure card takes full height of column */
+  display: flex;
+  flex-direction: column;
+}
+
+.explorer-card .desti-image {
+  height: 250px !important;
+  /* Fixed height for consistency */
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  /* Rounded top corners only */
+}
+
+.explorer-card .desti-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures image covers area without distortion */
+  transition: transform 0.5s ease;
+}
+
+.explorer-card:hover .desti-image img {
+  transform: scale(1.1);
+}
+
+.explorer-card .desti-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
+  /* Ensure content fills available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+.explorer-card .desti-content h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */

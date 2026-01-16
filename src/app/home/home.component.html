@@ -129,6 +129,138 @@
                 </div>
             </div>
         </section>
+
+        <!-- Destination Explorer Section -->
+        <section class="explorer-section" style="padding: 80px 0; background-color: #f9f9f9;">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <h5 class="dash-style">Descubre tu viaje ideal</h5>
+                    <h2>Explora tus Próximas Vacaciones</h2>
+                </div>
+
+                <!-- Top Level Categories -->
+                <div class="explorer-categories text-center mb-4">
+                    <button class="button-primary explorer-cat-btn" [class.active-cat]="currentCategory === 'familiar'"
+                        (click)="selectCategory('familiar')">
+                        Viaje Familiar
+                    </button>
+                    <button class="button-primary explorer-cat-btn" [class.active-cat]="currentCategory === 'bodas'"
+                        (click)="selectCategory('bodas')">
+                        Bodas
+                    </button>
+                </div>
+
+                <!-- Sub Categories (Only for Familiar) -->
+                <div class="explorer-subcategories text-center mb-5" *ngIf="currentCategory === 'familiar'">
+                    <button class="explorer-sub-btn" [class.active-sub]="currentSubCategory === 'nacional'"
+                        (click)="selectSubCategory('nacional')">
+                        Nacional
+                    </button>
+                    <button class="explorer-sub-btn" [class.active-sub]="currentSubCategory === 'internacional'"
+                        (click)="selectSubCategory('internacional')">
+                        Internacional
+                    </button>
+                </div>
+
+                <!-- Destinations List (View 1) -->
+                <div class="explorer-destinations" *ngIf="currentDestinations.length > 0 && !selectedDestination">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 col-sm-6 mb-4" *ngFor="let dest of currentDestinations">
+                            <div class="desti-item overlay-desti-item explorer-card">
+                                <figure class="desti-image">
+                                    <img [src]="dest.image || 'assets/images/img5.jpg'" alt="{{dest.name}}">
+                                </figure>
+                                <div class="desti-content">
+                                    <h3>
+                                        <a href="javascript:void(0)">{{ dest.name }}</a>
+                                    </h3>
+                                    <div class="btn-wrap text-center mt-3">
+                                        <!-- Update: Click now triggers selectDestination instead of modal -->
+                                        <button (click)="selectDestination(dest)" class="button-primary sm-btn">Ver
+                                            Paquetes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package List (View 2) -->
+                <div class="explorer-packages" *ngIf="selectedDestination && !selectedHotelPackage">
+                    <div class="d-flex align-items-center mb-4">
+                        <button class="back-btn mr-3" (click)="clearSelection()">
+                            <i class="fas fa-arrow-left"></i> Volver a Destinos
+                        </button>
+                        <h3 class="m-0 text-left">Paquetes en {{selectedDestination.name}}</h3>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 col-sm-6 mb-4" *ngFor="let pkg of selectedDestination.packages">
+                            <div class="desti-item overlay-desti-item explorer-card">
+                                <figure class="desti-image">
+                                    <img [src]="pkg.image || 'assets/images/img5.jpg'" alt="{{pkg.name}}">
+                                </figure>
+                                <div class="desti-content">
+                                    <h3>
+                                        <a href="javascript:void(0)">{{ pkg.name }}</a>
+                                    </h3>
+                                    <p class="pkg-price-preview">{{ pkg.price }} / persona</p>
+                                    <div class="btn-wrap text-center mt-3">
+                                        <button (click)="selectPackage(pkg)" class="button-primary sm-btn">Ver
+                                            Detalles</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package Details (View 3) -->
+                <div class="explorer-details" *ngIf="selectedHotelPackage">
+                    <div class="d-flex align-items-center mb-4">
+                        <button class="back-btn mr-3" (click)="clearSelection()">
+                            <i class="fas fa-arrow-left"></i> Volver a Paquetes
+                        </button>
+                    </div>
+
+                    <div class="package-detail-card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <figure class="detail-image">
+                                    <img [src]="selectedHotelPackage.image" alt="{{selectedHotelPackage.name}}">
+                                </figure>
+                            </div>
+                            <div class="col-md-6 text-left">
+                                <h2 class="detail-title">{{selectedHotelPackage.name}}</h2>
+                                <h4 class="detail-price text-primary">{{selectedHotelPackage.price}} <small
+                                        class="text-muted">/ persona</small></h4>
+                                <p class="detail-desc">{{selectedHotelPackage.description}}</p>
+
+                                <h5 class="mt-4">Incluye:</h5>
+                                <ul class="detail-includes">
+                                    <li *ngFor="let inc of selectedHotelPackage.includes">
+                                        <i class="fas fa-check-circle text-success mr-2"></i> {{inc}}
+                                    </li>
+                                </ul>
+
+                                <div class="btn-wrap mt-5">
+                                    <button
+                                        (click)="openReservationModal(selectedHotelPackage.name, selectedHotelPackage.price)"
+                                        class="button-primary lg-btn">
+                                        Cotizar Ahora
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="currentCategory === 'familiar' && !currentSubCategory" class="text-center text-muted">
+                    <p>Selecciona una opción (Nacional o Internacional) para ver los destinos.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- slider html start -->
         <!-- Home search field html start -->
 

@@ -54,3 +54,227 @@
     position: fixed;
     background: #fff !important;
 }
+
+/*--------------------------------------------------------------
+>>> Destination Explorer Section - Enhanced Styles
+----------------------------------------------------------------*/
+.explorer-section .section-heading {
+    margin-bottom: 40px;
+}
+
+/* Category Buttons */
+.explorer-categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.explorer-cat-btn {
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #F56960;
+    /* Primary brand color */
+    background-color: transparent;
+    color: #F56960;
+    cursor: pointer;
+}
+
+.explorer-cat-btn:hover,
+.explorer-cat-btn.active-cat {
+    background-color: #F56960;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(245, 105, 96, 0.3);
+}
+
+/* Sub-category Buttons */
+.explorer-subcategories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.explorer-sub-btn {
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.explorer-sub-btn:hover,
+.explorer-sub-btn.active-sub {
+    border-color: #101F46;
+    /* Secondary brand color */
+    background-color: #101F46;
+    color: #ffffff;
+}
+
+/* Destination Cards - Uniform Size */
+/* We target .explorer-card which is on the same element as .desti-item */
+.explorer-card {
+    height: 100%;
+    /* Fill the column height */
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    /* Ensure bg is white */
+    border-radius: 10px;
+    overflow: hidden;
+    /* Round borders */
+}
+
+/* Force image height */
+.explorer-card .desti-image {
+    height: 250px !important;
+    flex-shrink: 0;
+    /* Don't shrink */
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.explorer-card .desti-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.explorer-card:hover .desti-image img {
+    transform: scale(1.1);
+}
+
+/* Content fills remaining space */
+.explorer-card .desti-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Push button to bottom if wanted */
+    align-items: center;
+    background: #fff;
+
+    /* Override global style issues */
+    margin-top: 0 !important;
+    position: static !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.explorer-card .desti-content h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #101F46 !important;
+    /* Force dark blue color */
+}
+
+/* Ensure link inside inherits color or is also dark */
+.explorer-card .desti-content h3 a {
+    color: #101F46 !important;
+    text-decoration: none;
+}
+
+/* Buttons in card */
+.explorer-card .btn-wrap {
+    margin-top: auto;
+    /* Push to bottom of content area */
+}
+
+.explorer-card .button-primary {
+    border-radius: 50px;
+    /* Rounded pill buttons */
+}
+
+.pkg-price-preview {
+    color: #F56960;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Back Button */
+.back-btn {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: #F56960;
+}
+
+.back-btn i {
+    margin-right: 5px;
+}
+
+/* Package Detail View */
+.package-detail-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.detail-image img {
+    width: 100%;
+    border-radius: 10px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.detail-title {
+    color: #101F46;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.detail-price {
+    color: #F56960;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.detail-desc {
+    color: #666;
+    line-height: 1.6;
+}
+
+.detail-includes {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.detail-includes li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.detail-includes i {
+    color: #28a745;
+}
+
+.lg-btn {
+    padding: 12px 40px;
+    font-size: 18px;
+}
