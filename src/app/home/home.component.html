@@ -148,6 +148,10 @@
                         (click)="selectCategory('bodas')">
                         Bodas
                     </button>
+                    <button class="button-primary explorer-cat-btn" [class.active-cat]="currentCategory === 'autos'"
+                        (click)="selectCategory('autos')">
+                        Renta de Autos
+                    </button>
                 </div>
 
                 <!-- Sub Categories (Only for Familiar) -->
@@ -176,8 +180,9 @@
                                     </h3>
                                     <div class="btn-wrap text-center mt-3">
                                         <!-- Update: Click now triggers selectDestination instead of modal -->
-                                        <button (click)="selectDestination(dest)" class="button-primary sm-btn">Ver
-                                            Paquetes</button>
+                                        <button (click)="selectDestination(dest)" class="button-primary sm-btn">
+                                            {{ currentCategory === 'autos' ? 'Ver Autos' : 'Ver Paquetes' }}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +196,10 @@
                         <button class="back-btn mr-3" (click)="clearSelection()">
                             <i class="fas fa-arrow-left"></i> Volver a Destinos
                         </button>
-                        <h3 class="m-0 text-left">Paquetes en {{selectedDestination.name}}</h3>
+                        <h3 class="m-0 text-left">
+                            {{ currentCategory === 'autos' ? 'Autos en ' : 'Paquetes en ' }}
+                            {{selectedDestination.name}}
+                        </h3>
                     </div>
 
                     <div class="row justify-content-center">
@@ -204,7 +212,9 @@
                                     <h3>
                                         <a href="javascript:void(0)">{{ pkg.name }}</a>
                                     </h3>
-                                    <p class="pkg-price-preview">{{ pkg.price }} / persona</p>
+                                    <p class="pkg-price-preview">
+                                        {{ pkg.price }} {{ currentCategory === 'autos' ? '/ día' : '/ persona' }}
+                                    </p>
                                     <div class="btn-wrap text-center mt-3">
                                         <button (click)="selectPackage(pkg)" class="button-primary sm-btn">Ver
                                             Detalles</button>
@@ -219,7 +229,8 @@
                 <div class="explorer-details" *ngIf="selectedHotelPackage">
                     <div class="d-flex align-items-center mb-4">
                         <button class="back-btn mr-3" (click)="clearSelection()">
-                            <i class="fas fa-arrow-left"></i> Volver a Paquetes
+                            <i class="fas fa-arrow-left"></i>
+                            {{ currentCategory === 'autos' ? 'Volver a Autos' : 'Volver a Paquetes' }}
                         </button>
                     </div>
 
@@ -232,8 +243,12 @@
                             </div>
                             <div class="col-md-6 text-left">
                                 <h2 class="detail-title">{{selectedHotelPackage.name}}</h2>
-                                <h4 class="detail-price text-primary">{{selectedHotelPackage.price}} <small
-                                        class="text-muted">/ persona</small></h4>
+                                <h4 class="detail-price text-primary">
+                                    {{selectedHotelPackage.price}}
+                                    <small class="text-muted">
+                                        {{ currentCategory === 'autos' ? '/ día' : '/ persona' }}
+                                    </small>
+                                </h4>
                                 <p class="detail-desc">{{selectedHotelPackage.description}}</p>
 
                                 <h5 class="mt-4">Incluye:</h5>

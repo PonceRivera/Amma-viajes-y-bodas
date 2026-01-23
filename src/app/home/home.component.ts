@@ -201,6 +201,46 @@ export class HomeComponent implements AfterViewInit {
                     ]
                 }
             }
+        },
+        autos: {
+            label: 'Renta de Autos',
+            subCategories: {
+                general: {
+                    label: 'Autos Disponibles',
+                    destinations: [
+                        {
+                            name: 'Cancún',
+                            image: 'assets/images/img1.jpg', // Using existing image
+                            packages: [
+                                {
+                                    id: 'auto1',
+                                    name: 'Nissan Versa',
+                                    price: '$800',
+                                    image: 'assets/images/versa.jpg',
+                                    description: 'Sedán compacto, económico y eficiente. Ideal para moverse por la ciudad y zona hotelera.',
+                                    includes: ['Seguro Cobertura Amplia', 'Kilometraje Ilimitado', 'Transmisión Automática', 'A/C']
+                                },
+                                {
+                                    id: 'auto2',
+                                    name: 'Jeep Wrangler',
+                                    price: '$2,500',
+                                    image: 'assets/images/wrangler.avif',
+                                    description: 'Todo terreno descapotable. Perfecto para la aventura y disfrutar del clima.',
+                                    includes: ['4x4', 'Seguro Incluido', 'Capacidad 4 Pasajeros', 'GPS Incluido']
+                                },
+                                {
+                                    id: 'auto3',
+                                    name: 'Chevrolet Suburban',
+                                    price: '$3,800',
+                                    image: 'assets/images/suburban.avif',
+                                    description: 'Camioneta de lujo para familias grandes. Máximo confort y seguridad.',
+                                    includes: ['Para 7 Pasajeros', 'Pantallas de Entretenimiento', 'Cajuela Amplia', 'Chofer Opcional']
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
         }
     };
 
@@ -220,7 +260,7 @@ export class HomeComponent implements AfterViewInit {
         this.currentCategory = cat;
         this.currentSubCategory = null; // Reset sub
         this.clearSelection(); // Reset destination/package selection
-        if (cat === 'bodas') {
+        if (cat === 'bodas' || cat === 'autos') {
             this.currentSubCategory = 'general';
         }
     }
